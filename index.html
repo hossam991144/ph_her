@@ -1,0 +1,98 @@
+rrrr8q<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+
+<style>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #0f172a;
+    font-family: Arial;
+}
+
+.box {
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    color: white;
+    width: 300px;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #22c55e;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #16a34a;
+}
+
+#error {
+    color: red;
+    margin-top: 10px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="box">
+    <h2>🔐 تسجيل الدخول</h2>
+
+    <input type="password" id="pass" placeholder="ادخل الباسورد">
+
+    <button onclick="login()">دخول</button>
+
+    <p id="error"></p>
+</div>
+
+<script>
+// منع كليك يمين (اختياري)
+document.addEventListener("contextmenu", event => event.preventDefault());
+
+// Enter يشتغل
+document.getElementById("pass").addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+        login();
+    }
+});
+
+function login() {
+    let p = document.getElementById("pass").value;
+    let error = document.getElementById("error");
+
+    if (p === "1234") {
+        localStorage.setItem("auth", "true");
+        window.location.href = "file:///D:/%D9%83%D9%88%D8%B1%D8%B3%D8%A7%D8%AA/Programing/%D8%AA%D8%B9%D9%84%D9%85/project%20all%20html/project/index.html"; // غير الاسم هنا
+    } else {
+        error.innerText = "❌ الباسورد غلط";
+    }
+}
+</script>
+
+</body>
+</html>
